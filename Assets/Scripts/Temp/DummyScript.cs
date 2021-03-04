@@ -8,6 +8,10 @@ public class DummyScript : MonoBehaviour
     public static bool asb;
     #endregion
     #region DummyRegion
+    public void khers()
+    {
+        print("asb");
+    }
     #endregion
 }
 
