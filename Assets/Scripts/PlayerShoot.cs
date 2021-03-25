@@ -7,6 +7,9 @@ public class PlayerShoot : MonoBehaviour
     #region Variables
     [SerializeField] GameObject bulletPrefab;
     [SerializeField] Transform MuzzlePoint;
+    [SerializeField] float shootCoolDown = .7f;
+
+    float lastShootTime = -1f;
 
     #endregion
     #region MonoBehaviouCallBacks
@@ -16,19 +19,22 @@ public class PlayerShoot : MonoBehaviour
     }
     private void OnEnable()
     {
-        MoveCharacter.onShoot += Shoot;
+        UiEvents.onShoot += Shoot;
     }
     private void OnDisable()
     {
-        MoveCharacter.onShoot -= Shoot;
+        UiEvents.onShoot -= Shoot;
     }
     #endregion
     #region Functions
     public void Shoot()
     {
+        if (Time.time < lastShootTime + shootCoolDown)
+            return;
+        lastShootTime = Time.time;
         Rigidbody bulletRB = ObjectPool.Instantiate(bulletPrefab, MuzzlePoint.position, MuzzlePoint.rotation).GetComponent<Rigidbody>();
-        bulletRB.AddForce(10.0f * MuzzlePoint.forward, ForceMode.VelocityChange);
-        //bulletRB.velocity = 10.0f * MuzzlePoint.forward;
+        //bulletRB.AddForce(10.0f * MuzzlePoint.forward, ForceMode.VelocityChange);
+        bulletRB.velocity = 10.0f * MuzzlePoint.forward;
     }
     #endregion
 }

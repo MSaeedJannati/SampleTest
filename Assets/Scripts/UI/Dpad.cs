@@ -104,6 +104,7 @@ public class Dpad : MonoBehaviour, IDragHandler, IPointerUpHandler, IPointerDown
             t += Time.deltaTime;
             yield return null;
         }
+        foreGroundTrnsfrm.position = dest;
     }
     #endregion
 
