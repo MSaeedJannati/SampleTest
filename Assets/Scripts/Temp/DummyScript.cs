@@ -10,7 +10,7 @@ public class DummyScript : MonoBehaviour
     #region DummyRegion
     public void khers()
     {
-        print("asb");
+        Debug.Log("goraz");
     }
     #endregion
 }
