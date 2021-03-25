@@ -2492,7 +2492,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98995237f1166aa4885404f277b7922a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 7724235035435907822, guid: edc71fbaec76561429835f5b07aee0ae,
+  bulletPrefab: {fileID: 7724235035435907822, guid: 230bbd8409e291a469ee9bef247407b7,
     type: 3}
   MuzzlePoint: {fileID: 1472559672}
   shootCoolDown: 0.7
