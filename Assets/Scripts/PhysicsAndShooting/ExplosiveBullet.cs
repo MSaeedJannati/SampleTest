@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class ExplosiveBullet : Bullet
 {
+    #region Variabels
+    [SerializeField] GameObject explosionPrefab;
+    #endregion
+    #region Functions
+
     public override void ImpactEffect(Vector3 contactPos)
     {
 
@@ -17,6 +22,13 @@ public class ExplosiveBullet : Bullet
                 rb.AddExplosionForce(10.0f, contactPos, 1.7f, 1f, ForceMode.Impulse);
             }
         }
+        contactPos.y += 1.0f;
+        CreateExplosion(contactPos);
         disableBullet();
     }
+    void CreateExplosion(Vector3 pos)
+    {
+               ObjectPool.Instantiate(explosionPrefab, pos, Quaternion.Euler(-90, 0, 0)) ;
+    }
+    #endregion
 }

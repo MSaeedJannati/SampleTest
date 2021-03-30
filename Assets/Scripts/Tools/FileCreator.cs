@@ -8,7 +8,7 @@ public class FileCreator : MonoBehaviour
     [NaughtyAttributes.Button]
     public void test()
     {
-        createFIle("Salam", "Salam");
+        
     }
     public static void createFIle( string fileName, string data)
     {
@@ -22,5 +22,25 @@ public class FileCreator : MonoBehaviour
             writer.Write(data);
         }
         System.Diagnostics.Process.Start("F:\\TestTextFile");
+
+    }
+    public static string readFile(string fileName)
+    {
+        string path = $"F:\\TestTextFile" + $"\\{fileName}.txt";
+        string data = string.Empty;
+        if (File.Exists(path))
+        {
+            using (FileStream file = new FileStream(path, FileMode.Open))
+            {
+
+                using (StreamReader reader = new StreamReader(file))
+                {
+                    data = reader.ReadToEnd();
+                }
+            }
+            return data;
+        }
+        else
+            return string.Empty;
     }
 }
