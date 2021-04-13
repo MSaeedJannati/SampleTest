@@ -1,0 +1,15 @@
+{
+    "name": "Bazaar",
+    "references": [
+        "GUID:21d67127ca7398c4eba5097eaeeb14c0"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
