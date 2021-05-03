@@ -3,8 +3,8 @@
     "references": [
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner",
-        "MITCourse",
-        "AlgoProblems"
+        "AlgoProblems",
+        "MitCourse"
     ],
     "includePlatforms": [
         "Editor"

@@ -5,10 +5,10 @@ using UnityEngine;
 public class BinarySearchTree  
 {
     #region variables
-    BstNode firstNode;
+    public  BstNode firstNode;
     #endregion
     #region Constructors
-    BinarySearchTree(int FirstValue)
+  public   BinarySearchTree(int FirstValue)
     {
         firstNode=new BstNode(FirstValue);
     }
@@ -17,6 +17,11 @@ public class BinarySearchTree
 
     #endregion
     #region Functions
+    public void AddToTree(int Value)
+    {
+        BstNode node = new BstNode(Value);
+        Insert(ref node);
+    }
     public void Insert(ref BstNode node)
     {
         if (firstNode == null)
@@ -27,15 +32,15 @@ public class BinarySearchTree
         else
         {
             bool addToLeft;
-            BstNode targetNode = findInsertionPoint(node.Value, out addToLeft);
-            node.ParentNode = targetNode;
+            BstNode targetNode = findInsertionPoint(node.mValue, out addToLeft);
+            node.parentNode = targetNode;
             if (addToLeft)
             {
-                targetNode.LeftNode = node;
+                targetNode.leftNode = node;
             }
             else
             {
-                targetNode.RightNode = node;
+                targetNode.rightNode = node;
             }
         }
     }
@@ -46,9 +51,9 @@ public class BinarySearchTree
         BstNode node = firstNode;
         while (!found)
         {
-            if (Amount > node.Value)
+            if (Amount > node.mValue)
             {
-                if (node.RightNode == null)
+                if (node.rightNode == null)
                 {
                     found = true;
                     addToLeft = false;
@@ -56,12 +61,12 @@ public class BinarySearchTree
                 }
                 else
                 {
-                    node = node.RightNode;
+                    node = node.rightNode;
                 }
             }
             else
             {
-                if (node.LeftNode == null)
+                if (node.leftNode == null)
                 {
                     found = true;
                     addToLeft = true;
@@ -69,7 +74,7 @@ public class BinarySearchTree
                 }
                 else
                 {
-                    node = node.LeftNode;
+                    node = node.leftNode;
                 }
             }
         }
