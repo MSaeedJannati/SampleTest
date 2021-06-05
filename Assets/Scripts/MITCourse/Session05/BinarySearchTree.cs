@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BinarySearchTree  
+public class BinarySearchTree
 {
     #region variables
-    public  BstNode firstNode;
+    public BstNode firstNode;
     #endregion
     #region Constructors
-  public   BinarySearchTree(int FirstValue)
+    public BinarySearchTree(int FirstValue)
     {
-        firstNode=new BstNode(FirstValue);
+        firstNode = new BstNode(FirstValue);
     }
     #endregion
     #region Properties
@@ -44,7 +44,7 @@ public class BinarySearchTree
             }
         }
     }
-    public BstNode findInsertionPoint(int Amount,out bool addToLeft)
+    public BstNode findInsertionPoint(int Amount, out bool addToLeft)
     {
         bool found = false;
         addToLeft = false;
@@ -80,6 +80,6 @@ public class BinarySearchTree
         }
         return node;
     }
-    
+
     #endregion
 }

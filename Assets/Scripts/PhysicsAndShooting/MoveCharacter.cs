@@ -86,7 +86,7 @@ public class MoveCharacter : MonoBehaviour
     {
         //mController.Move(new Vector3(0,1.0f,0));
         //if (mController.isGrounded)
-            StartCoroutine(jumpCoroutine());
+        StartCoroutine(jumpCoroutine());
     }
     public void Move(Vector3 direction)
     {
@@ -136,9 +136,24 @@ public class MoveCharacter : MonoBehaviour
         float period = .2f;
         float t = 0.0f;
         float JumpHeight = 1.0f;
-        while (t < period)
+
+
+        //while (t < period)
+        //{
+        //    mController.Move(new Vector3(0, 1.0f, 0) * JumpHeight / period * Time.deltaTime);
+        //    t += Time.deltaTime;
+        //    yield return null;
+        //}
+        float jumpInitSpeed = 8.0f;
+        float acceleration = -9.8f;
+        bool firstMoment = true;
+        Vector3 deltaPos = new Vector3(0, 1.0f, 0);
+        t = 0.0f;
+        while (!mController.isGrounded || firstMoment)
         {
-            mController.Move(new Vector3(0, 1.0f, 0) * JumpHeight / period * Time.deltaTime);
+            firstMoment = false;
+            deltaPos.y = (jumpInitSpeed + acceleration * t) * Time.deltaTime;
+            mController.Move(deltaPos);
             t += Time.deltaTime;
             yield return null;
         }

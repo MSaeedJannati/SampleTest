@@ -11,6 +11,10 @@ public class BstDrawer : MonoBehaviour
     #region Functions
     public void drawBst(BinarySearchTree bst)
     {
+        for (int i = 0; i < NodeParentTransform.childCount;i++)
+        {
+            Destroy(NodeParentTransform.GetChild(i).gameObject);
+        }
         drawNode(bst.firstNode, NodeParentTransform);
     }
     public void drawNode(BstNode node,Transform targetTransform)
